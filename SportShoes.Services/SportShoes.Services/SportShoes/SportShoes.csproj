@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>SportShoes</AssemblyName>
+    <RootNamespace>SportShoes</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.2.0" />
+    <PackageReference Include="Cronos" Version="0.7.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.13">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.1.5" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.4.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="5.4.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.4.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.4.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="5.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LotteryManagement.Application\SportShoes.Application.csproj" />
+    <ProjectReference Include="..\LotteryManagement.Data.EF\SportShoes.Data.EF.csproj" />
+    <ProjectReference Include="..\LotteryManagement.Data\SportShoes.Data.csproj" />
+    <ProjectReference Include="..\LotteryManagement.Infrastructure\SportShoes.Infrastructure.csproj" />
+    <ProjectReference Include="..\LotteryManagement.Utilities\SportShoes.Utilities.csproj" />
+    <ProjectReference Include="..\SportShoes.Application\SportShoes.Application.csproj" />
+    <ProjectReference Include="..\SportShoes.Data.EF\SportShoes.Data.EF.csproj" />
+    <ProjectReference Include="..\SportShoes.Data\SportShoes.Data.csproj" />
+    <ProjectReference Include="..\SportShoes.Infrastructure\SportShoes.Infrastructure.csproj" />
+    <ProjectReference Include="..\SportShoes.Utilities\SportShoes.Utilities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="StaticFiles\Images\" />
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
+
+</Project>

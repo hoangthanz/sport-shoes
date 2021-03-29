@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<AssemblyName>SportShoes.Application</AssemblyName>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+		<PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.5.1" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.5.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\LotteryManagement.Data.EF\SportShoes.Data.EF.csproj" />
+		<ProjectReference Include="..\LotteryManagement.Data\SportShoes.Data.csproj" />
+		<ProjectReference Include="..\LotteryManagement.Infrastructure\SportShoes.Infrastructure.csproj" />
+		<ProjectReference Include="..\SportShoes.Data.EF\SportShoes.Data.EF.csproj" />
+		<ProjectReference Include="..\SportShoes.Data\SportShoes.Data.csproj" />
+		<ProjectReference Include="..\SportShoes.Infrastructure\SportShoes.Infrastructure.csproj" />
+		<ProjectReference Include="..\SportShoes.Utilities\SportShoes.Utilities.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Implementation\" />
+	  <Folder Include="Interfaces\" />
+	</ItemGroup>
+
+
+</Project>
