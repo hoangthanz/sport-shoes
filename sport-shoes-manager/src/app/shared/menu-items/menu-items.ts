@@ -9,8 +9,8 @@ export interface Menu {
 
 const MENUITEMS = [
   { state: 'dashboard', name: 'Dashboard', type: 'link', icon: 'av_timer' },
-  { state: 'button', type: 'link', name: 'Buttons', icon: 'crop_7_5' },
-  { state: 'grid', type: 'link', name: 'Grid List', icon: 'view_comfy' },
+  { state: 'product-category', type: 'link', name: 'Danh mục sản phẩm', icon: 'crop_7_5' },
+  { state: 'product', type: 'link', name: 'Sản phẩm', icon: 'view_comfy' },
   { state: 'lists', type: 'link', name: 'Lists', icon: 'view_list' },
   { state: 'menu', type: 'link', name: 'Menu', icon: 'view_headline' },
   { state: 'tabs', type: 'link', name: 'Tabs', icon: 'tab' },

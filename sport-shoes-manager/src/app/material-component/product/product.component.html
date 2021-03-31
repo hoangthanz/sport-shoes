@@ -1,0 +1,70 @@
+<mat-card>
+  <mat-card-content>
+    <mat-card-title>Sản phảm</mat-card-title>
+    <mat-card-subtitle>Thông tin chi tiết về sản phẩm</mat-card-subtitle>
+
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="15px" fxLayoutAlign="center">
+      <div fxFlex="100%" style="text-align: right;">
+        <div class="button-row">
+          <button mat-flat-button color="primary" (click)="openCreateProductCategory()">Thêm mới</button>
+        </div>
+      </div>
+    </div>
+
+    <table mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="index">
+        <th mat-header-cell *matHeaderCellDef> STT </th>
+        <td mat-cell *matCellDef="let element; let i = index"> {{ i + 1}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Tên sản phẩm </th>
+        <td mat-cell *matCellDef="let element"> {{element?.name}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Mô tả</th>
+        <td mat-cell *matCellDef="let element"> {{element?.description}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="productCategoryName">
+        <th mat-header-cell *matHeaderCellDef> Danh mục</th>
+        <td mat-cell *matCellDef="let element"> {{element?.productCategory?.name}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="imageFile">
+        <th mat-header-cell *matHeaderCellDef> Ảnh</th>
+        <td mat-cell *matCellDef="let element"> <img src="element.imageFile" width="10px" height="10px"> </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="unitPrice">
+        <th mat-header-cell *matHeaderCellDef> Giá</th>
+        <td mat-cell *matCellDef="let element"> {{element?.unitPrice | number}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="controls">
+        <th mat-header-cell *matHeaderCellDef> </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button color="primary" (click)="openUpdateProductCategory(element)">
+            <mat-icon>edit</mat-icon>
+          </button>
+
+          <button mat-icon-button (click)="openDeleteProductCategory(element)">
+            <mat-icon>close</mat-icon>
+          </button>
+
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+  </mat-card-content>
+</mat-card>

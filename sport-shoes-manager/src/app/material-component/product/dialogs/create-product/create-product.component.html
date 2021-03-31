@@ -1,0 +1,50 @@
+<h3>Tạo sản phẩm</h3>
+
+<form (ngSubmit)="submit()" [formGroup]="productForm">
+
+
+  <mat-form-field appearance="outline">
+    <mat-label>Danh mục sản phẩm</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let productCategory of productCategories" [value]="productCategory.id">
+        {{productCategory.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Thuộc thương hiệu</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let brand of brands" [value]="brand.id">
+        {{brand.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Thuộc thương hiệu</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let brand of brands" [value]="brand.id">
+        {{brand.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <mat-form-field appearance="outline">
+    <mat-label>Tên sản phẩm</mat-label>
+    <input matInput placeholder="Vd: Giày thể thao" formControlName="name">
+  </mat-form-field>
+
+
+  <mat-dialog-actions align="end">
+    <button mat-flat-button tabindex="-1" [mat-dialog-close]="true" color="primary" type="submit">
+      <mat-icon fxHide.xs>check</mat-icon>
+      Đồng ý
+    </button>
+    <button mat-button mat-dialog-close tabindex="-1" [mat-dialog-close]="false">
+      <mat-icon fxHide.xs>close</mat-icon>
+      Hủy bỏ
+    </button>
+  </mat-dialog-actions>
+</form>

@@ -31,6 +31,14 @@ import { TooltipComponent } from './tooltip/tooltip.component';
 import { SnackbarComponent } from './snackbar/snackbar.component';
 import { SliderComponent } from './slider/slider.component';
 import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
+import { ProductCategoryComponent } from './product-category/product-category.component';
+import { CreateProductCategoryComponent } from './product-category/dialogs/create-product-category/create-product-category.component';
+import { UpdateProductCategoryComponent } from './product-category/dialogs/update-product-category/update-product-category.component';
+import { ProductComponent } from './product/product.component';
+import { CreateProductComponent } from './product/dialogs/create-product/create-product.component';
+import { UpdateProductComponent } from './product/dialogs/update-product/update-product.component';
+
+
 
 @NgModule({
   imports: [
@@ -44,7 +52,9 @@ import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
     CdkTableModule
   ],
   providers: [],
-  entryComponents: [DialogOverviewExampleDialogComponent],
+  entryComponents: [
+    DialogOverviewExampleDialogComponent
+  ],
   declarations: [
     ButtonsComponent,
     GridComponent,
@@ -62,7 +72,13 @@ import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
     TooltipComponent,
     SnackbarComponent,
     SliderComponent,
-    SlideToggleComponent
+    SlideToggleComponent,
+    ProductCategoryComponent,
+    CreateProductCategoryComponent,
+    UpdateProductCategoryComponent,
+    ProductComponent,
+    CreateProductComponent,
+    UpdateProductComponent
   ]
 })
-export class MaterialComponentsModule {}
+export class MaterialComponentsModule { }

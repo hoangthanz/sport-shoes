@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 
-import { ButtonsComponent } from './buttons/buttons.component';
 import { GridComponent } from './grid/grid.component';
 import { ListsComponent } from './lists/lists.component';
 import { MenuComponent } from './menu/menu.component';
@@ -16,15 +15,17 @@ import { TooltipComponent } from './tooltip/tooltip.component';
 import { SnackbarComponent } from './snackbar/snackbar.component';
 import { SliderComponent } from './slider/slider.component';
 import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
+import { ProductCategoryComponent } from './product-category/product-category.component';
+import { ProductComponent } from './product/product.component';
 
 export const MaterialRoutes: Routes = [
   {
-    path: 'button',
-    component: ButtonsComponent
+    path: 'product-category',
+    component: ProductCategoryComponent
   },
   {
-    path: 'grid',
-    component: GridComponent
+    path: 'product',
+    component: ProductComponent
   },
   {
     path: 'lists',
