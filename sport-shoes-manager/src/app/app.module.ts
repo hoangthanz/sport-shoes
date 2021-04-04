@@ -9,7 +9,6 @@ import { CurrencyPipe, DatePipe, DecimalPipe, LocationStrategy, PathLocationStra
 import { AppRoutes } from './app.routing';
 import { AppComponent } from './app.component';
 
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { FullComponent } from './layouts/full/full.component';
 import { AppHeaderComponent } from './layouts/full/header/header.component';
 import { AppSidebarComponent } from './layouts/full/sidebar/sidebar.component';
@@ -27,6 +26,8 @@ import { LoginService } from './shared/services/login.service';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ConfirmComponent } from './shared/components/confirm/confirm.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 
 export function tokenGetter() {
@@ -67,6 +68,9 @@ export function tokenGetter() {
     }),
     ReactiveFormsModule,
     FormsModule,
+
+
+
   ],
   providers: [
     {

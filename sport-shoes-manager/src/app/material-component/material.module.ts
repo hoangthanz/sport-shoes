@@ -37,6 +37,7 @@ import { UpdateProductCategoryComponent } from './product-category/dialogs/updat
 import { ProductComponent } from './product/product.component';
 import { CreateProductComponent } from './product/dialogs/create-product/create-product.component';
 import { UpdateProductComponent } from './product/dialogs/update-product/update-product.component';
+import { ReviewComponent } from './review/review.component';
 
 
 
@@ -78,7 +79,8 @@ import { UpdateProductComponent } from './product/dialogs/update-product/update-
     UpdateProductCategoryComponent,
     ProductComponent,
     CreateProductComponent,
-    UpdateProductComponent
+    UpdateProductComponent,
+    ReviewComponent
   ]
 })
 export class MaterialComponentsModule { }

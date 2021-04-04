@@ -17,6 +17,7 @@ import { SliderComponent } from './slider/slider.component';
 import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
 import { ProductCategoryComponent } from './product-category/product-category.component';
 import { ProductComponent } from './product/product.component';
+import { ReviewComponent } from './review/review.component';
 
 export const MaterialRoutes: Routes = [
   {
@@ -26,6 +27,10 @@ export const MaterialRoutes: Routes = [
   {
     path: 'product',
     component: ProductComponent
+  },
+  {
+    path: 'review',
+    component: ReviewComponent
   },
   {
     path: 'lists',

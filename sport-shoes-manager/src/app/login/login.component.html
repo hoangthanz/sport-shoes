@@ -1,41 +1,53 @@
-<!-- ========================= SECTION CONTENT ========================= -->
-<section class="section-conten padding-y" style="min-height:84vh" style="background-color: white;">
+<div class="center-parent">
+  <mat-card style="width: 30vw; height: 50vh; margin-top: 25vh; ">
 
-  <!-- ============================ COMPONENT LOGIN   ================================= -->
-  <div class="card mx-auto" style="max-width: 380px; margin-top:100px;">
-    <div class="card-body">
-      <h4 class="card-title mb-4">Đăng nhập</h4>
+    <div fxLayout="column" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="2%" fxLayoutAlign="center">
+      <div fxFlex="100%" class="image-center">
+        <img src="assets/images/undraw_step_to_the_sun_nxqq.svg" class="img-login-panel">
+      </div>
+      <div fxFlex="100%" class="image-center">
+        <div style="width: 90%;">
+          <mat-form-field appearance="outline">
+            <mat-label>Tên đăng nhập</mat-label>
+            <input matInput [(ngModel)]="userName">
+            <button mat-icon-button matSuffix style="color: lightgray;">
+              <mat-icon>face</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
 
-      <a class="btn btn-facebook btn-block mb-2" style="color: white;" matRipple> <i class="fab fa-facebook-f"></i>
-        Sign in with
-        Facebook</a>
-      <a class="btn btn-google btn-block mb-4" style="color: white;" matRipple> <i class="fab fa-google"></i> Sign in
-        with
-        Google</a>
-      <div class="form-group">
-        <input name="" class="form-control" placeholder="Username" type="text" [(ngModel)]="userName">
-      </div> <!-- form-group// -->
-      <div class="form-group">
-        <input name="" class="form-control" placeholder="Password" type="password" [(ngModel)]="password">
-      </div> <!-- form-group// -->
+      </div>
 
-      <div class="form-group">
-        <a href="#" class="float-right">Quên mật khẩu?</a>
-        <label class="float-left custom-control custom-checkbox"> <input type="checkbox" class="custom-control-input"
-            checked="">
-          <div class="custom-control-label"> Ghi nhớ </div>
-        </label>
-      </div> <!-- form-group form-check .// -->
-      <div class="form-group">
-        <button type="button" class="btn btn-primary btn-block" (click)="login()"> Đăng nhập </button>
-      </div> <!-- form-group// -->
+      <div fxFlex="100%" class="image-center">
+        <div style="width: 90%;">
+          <mat-form-field appearance="outline">
+            <mat-label>Mật khẩu</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              style="color: lightgray;" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+      </div>
 
-    </div> <!-- card-body.// -->
-  </div> <!-- card .// -->
-  <p class="text-center mt-4">Bạn chưa có tài khoản? <a href="#">Đăng ký</a></p>
-  <br><br>
-  <!-- ============================ COMPONENT LOGIN  END.// ================================= -->
+      <div fxFlex="100%" class="image-center">
+        <div style="width: 90%;">
+          <div fxLayout="row" fxLayout.xs="row" fxLayoutWrap fxLayoutGap="2%" fxLayoutAlign="left">
+            <div fxFlex="50%">
+              <mat-checkbox style="color: lightgray;" [checked]="rememberMe">Nhớ mật khẩu</mat-checkbox>
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <div fxFlex="100%" class="image-center">
+        <div style="width: 90%;">
+          <button mat-flat-button style="width: 100%;" color="primary" (click)="login()">Đăng
+            nhập</button>
+        </div>
+      </div>
 
-</section>
-<!-- ========================= SECTION CONTENT END// ========================= -->
+    </div>
+  </mat-card>
+</div>

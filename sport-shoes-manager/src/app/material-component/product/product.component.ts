@@ -7,6 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { BaseComponentService } from 'src/app/shared/components/base-component/base-component.service';
 import { ConfirmComponent } from 'src/app/shared/components/confirm/confirm.component';
 import { SportManagerApiService } from 'src/app/shared/services/sport-manager-api.service';
+import { environment } from 'src/environments/environment';
 import { CreateProductComponent } from './dialogs/create-product/create-product.component';
 import { UpdateProductComponent } from './dialogs/update-product/update-product.component';
 
@@ -21,6 +22,7 @@ export class ProductComponent extends BaseComponentService implements OnInit {
   public dataSource = new MatTableDataSource([]);
   public products: any[] = [];
 
+  public localDomain = environment.localDomain;
   constructor(
     public toastr: ToastrService,
     public router: Router,
@@ -57,7 +59,7 @@ export class ProductComponent extends BaseComponentService implements OnInit {
     const dialogRef = this.matDialog.open(CreateProductComponent, {
       data: {
       },
-      width: '30vw'
+      width: '50vw'
     });
     dialogRef.afterClosed().subscribe(result => {
       this.getProducts();
@@ -67,7 +69,7 @@ export class ProductComponent extends BaseComponentService implements OnInit {
   public openUpdateProduct(product: any) {
     const dialogRef = this.matDialog.open(UpdateProductComponent, {
       data: product,
-      width: '30vw'
+      width: '50vw'
     });
     dialogRef.afterClosed().subscribe(result => {
       this.getProducts();
