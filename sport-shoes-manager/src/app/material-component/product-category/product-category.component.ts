@@ -19,7 +19,7 @@ import { UpdateProductCategoryComponent } from './dialogs/update-product-categor
 export class ProductCategoryComponent extends BaseComponentService implements OnInit {
 
   public displayedColumns: string[] = ['index', 'name', 'controls'];
-  public dataSource = new MatTableDataSource([]);
+  public productCategorySource = new MatTableDataSource([]);
   public productCategories: any[] = [];
 
   constructor(
@@ -51,7 +51,7 @@ export class ProductCategoryComponent extends BaseComponentService implements On
   }
 
   public setProductCategorySource(productCategories: any): void {
-    this.dataSource = new MatTableDataSource(productCategories);
+    this.productCategorySource = new MatTableDataSource(productCategories);
   }
 
   public openCreateProductCategory() {

@@ -26,7 +26,7 @@ export class LoginComponent extends BaseComponentService implements OnInit {
   ) {
     super(toastr, router, currencyPipe, datePipe);
     if (localStorage.getItem('token') != null) {
-      this.GoTo('');
+      this.GoTo('full');
     }
   }
 
@@ -43,10 +43,10 @@ export class LoginComponent extends BaseComponentService implements OnInit {
     this.loginService.login(user).subscribe(
       (response: any) => {
         localStorage.setItem('token', response.token);
-        const tokenPayload = jwt_decode<JwtPayload>(response.token);
+       const tokenPayload = jwt_decode<JwtPayload>(response.token);
         console.log(tokenPayload);
-        localStorage.setItem('tokenPayload', this.ConvertObjectToString(tokenPayload));
-        this.GoTo('dashboard');
+       localStorage.setItem('tokenPayload', this.ConvertObjectToString(tokenPayload));
+        this.GoTo('full');
       },
       (error) => {
         this.ShowWarningMessage('Tài khoản hoăc mật khẩu không đúng!');

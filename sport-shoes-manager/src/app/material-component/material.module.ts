@@ -1,5 +1,5 @@
 import 'hammerjs';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
@@ -38,6 +38,8 @@ import { ProductComponent } from './product/product.component';
 import { CreateProductComponent } from './product/dialogs/create-product/create-product.component';
 import { UpdateProductComponent } from './product/dialogs/update-product/update-product.component';
 import { ReviewComponent } from './review/review.component';
+import { CKEditorModule } from 'ckeditor4-angular';
+import { MatTableModule } from '@angular/material/table';
 
 
 
@@ -50,11 +52,15 @@ import { ReviewComponent } from './review/review.component';
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    CdkTableModule
+    CdkTableModule,
+    CKEditorModule,
+    MatTableModule
+
   ],
   providers: [],
   entryComponents: [
-    DialogOverviewExampleDialogComponent
+    DialogOverviewExampleDialogComponent,
+    CreateProductComponent
   ],
   declarations: [
     ButtonsComponent,
@@ -80,7 +86,8 @@ import { ReviewComponent } from './review/review.component';
     ProductComponent,
     CreateProductComponent,
     UpdateProductComponent,
-    ReviewComponent
-  ]
+    ReviewComponent,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class MaterialComponentsModule { }

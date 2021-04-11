@@ -10,14 +10,14 @@ export class UserService {
 
   changePassword(id: string, changePassword) {
     return this.httpClient.post(
-      `${environment.lotteryDomain}/api/AppUsers/change-password/${id}`,
+      `${environment.localDomain}/api/AppUsers/change-password/${id}`,
       changePassword
     );
   }
 
   changePaymentPassword(id: string, changePaymentPassword) {
     return this.httpClient.post(
-      `${environment.lotteryDomain}/api/AppUsers/change-payment-password/${id}`,
+      `${environment.localDomain}/api/AppUsers/change-payment-password/${id}`,
       changePaymentPassword
     );
   }

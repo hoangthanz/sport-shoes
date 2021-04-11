@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { CommonService } from 'src/app/shared/services/common.service';
 
 @Component({
   selector: 'app-single-product',
@@ -7,9 +9,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SingleProductComponent implements OnInit {
 
-  constructor() { }
+  public observerMessageSubcription: Subscription;
 
-  ngOnInit() {
+  public selectedProduct;
+  public starNumber: number = 0;
+  constructor(
+    private commonService: CommonService
+  ) { }
+
+
+  ngOnDestroy(): void {
+    this.observerMessageSubcription?.unsubscribe();
   }
+
+  ngOnInit(): void {
+
+  }
+
+  public initialize(): void {
+    this.onProductListener();
+  }
+
+
+  public onProductListener() {
+    this.observerMessageSubcription = this.commonService.messageSource.asObservable().subscribe((data: any) => {
+      // do something
+      this.selectedProduct = data;
+      this.starNumber = this.selectedProduct.star;
+    });
+  }
+
 
 }

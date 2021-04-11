@@ -1,3 +1,4 @@
+import { CommonService } from './shared/services/common.service';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JwtModule } from '@auth0/angular-jwt';
@@ -81,7 +82,8 @@ export function tokenGetter() {
       useClass: TokenInterceptor,
       multi: true,
     },
-    SportManagerApiService
+    SportManagerApiService,
+    CommonService
 
   ],
   bootstrap: [AppComponent]

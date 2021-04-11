@@ -9,15 +9,17 @@ import { RegisterComponent } from './features/register/register.component';
 import { SingleProductComponent } from './features/single-product/single-product.component';
 
 const routes: Routes = [
+
+
   {
     path: '',
     component: MainComponent,
     children: [
       {
-        path: 'pages',
+        path: '',
         children: [
           {
-            path: '',
+            path: 'full',
             component: FullPageComponent,
           },
           {
@@ -32,12 +34,13 @@ const routes: Routes = [
             path: 'grid-product',
             component: GridProductComponent,
           },
+          { path: 'login', component: LoginComponent },
+          { path: 'register', component: RegisterComponent },
         ]
       }
     ]
   },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+
 ];
 
 @NgModule({

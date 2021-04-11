@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from 'src/app/shared/services/common.service';
 import { SportManagerApiService } from 'src/app/shared/services/sport-manager-api.service';
 
 @Component({
@@ -8,12 +9,15 @@ import { SportManagerApiService } from 'src/app/shared/services/sport-manager-ap
 })
 export class FullPageComponent implements OnInit {
 
-  public products;
+  public products = [];
 
-  constructor(public _sportManagerApiService: SportManagerApiService) { }
+  constructor(public _sportManagerApiService: SportManagerApiService,
+    private commonService: CommonService
+  ) {
+    this.initialize();
+  }
 
   ngOnInit() {
-    this.initialize();
   }
 
   public initialize() {
@@ -24,9 +28,14 @@ export class FullPageComponent implements OnInit {
     this._sportManagerApiService.getProducts().subscribe((products: any[]) => {
       this.products = products;
     }, error => {
-
+      this.products = [];
     });
   }
+
+  public sendProduct(message: any) {
+    this.commonService.sendMessage(message);
+  }
+
 
 
 }

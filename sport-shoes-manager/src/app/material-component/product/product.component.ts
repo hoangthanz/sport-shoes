@@ -59,7 +59,7 @@ export class ProductComponent extends BaseComponentService implements OnInit {
     const dialogRef = this.matDialog.open(CreateProductComponent, {
       data: {
       },
-      width: '50vw'
+      width: '80vw'
     });
     dialogRef.afterClosed().subscribe(result => {
       this.getProducts();
@@ -68,8 +68,10 @@ export class ProductComponent extends BaseComponentService implements OnInit {
 
   public openUpdateProduct(product: any) {
     const dialogRef = this.matDialog.open(UpdateProductComponent, {
-      data: product,
-      width: '50vw'
+      data: {
+        selectedProduct: product
+      },
+      width: '80vw'
     });
     dialogRef.afterClosed().subscribe(result => {
       this.getProducts();
@@ -79,17 +81,17 @@ export class ProductComponent extends BaseComponentService implements OnInit {
   public openDeleteProduct(product: any) {
     const dialogRef = this.matDialog.open(ConfirmComponent, {
       data: {
-        message: 'danh mục'
+        message: 'sản phẩm'
       },
       width: '30vw'
     });
     dialogRef.afterClosed().subscribe(isDeleted => {
       if (isDeleted) {
-        this._sportManagerApiService.deleteProductCategory(product.id).subscribe(response => {
-          this.ShowErrorMessage('Xóa danh mục thành công');
+        this._sportManagerApiService.deleteProduct(product.id).subscribe(response => {
+          this.ShowErrorMessage('Xóa sản phẩm thành công');
           this.getProducts();
         }, error => {
-          this.ShowErrorMessage('Xóa danh mục thất bại');
+          this.ShowErrorMessage('Xóa sản phẩm thất bại');
         });
       }
     });

@@ -27,6 +27,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ConfirmComponent } from './shared/components/confirm/confirm.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { CKEditorModule } from 'ckeditor4-angular';
 
 
 
@@ -68,7 +69,7 @@ export function tokenGetter() {
     }),
     ReactiveFormsModule,
     FormsModule,
-
+    CKEditorModule
 
 
   ],

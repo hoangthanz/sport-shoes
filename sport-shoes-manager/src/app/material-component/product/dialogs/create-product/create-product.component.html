@@ -2,9 +2,9 @@
 
 <form (ngSubmit)="submit()" [formGroup]="productForm">
   <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="15px" fxLayoutAlign="center">
-    <div fxFlex="50%">
+    <div fxFlex="20%">
 
-      <img [src]="imageUrl" style="width: 100%; height: 500px;">
+      <img [src]="imageUrl" style="width: 100%; height: 200px;">
       <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)" style="display:none;">
 
       <button mat-flat-button color="primary" (click)="file.click()" type="button" style="width: 100%;">
@@ -14,7 +14,7 @@
 
     </div>
 
-    <div fxFlex="50%">
+    <div fxFlex="40%">
       <mat-form-field appearance="outline">
         <mat-label>Danh mục sản phẩm</mat-label>
         <mat-select formControlName="productCategoryId">
@@ -40,17 +40,62 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Giá sản phẩm</mat-label>
-        <input matInput placeholder="Vd: 100.000.000" formControlName="unitPrice" style="text-align: right;">
+        <input matInput placeholder="Vd: 100.000.000" formControlName="price" style="text-align: right;">
       </mat-form-field>
+
+
+    </div>
+    <div fxFlex="40%">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Sản xuất tại</mat-label>
+        <mat-select formControlName="country">
+          <mat-option *ngFor="let country of countries" [value]="country">
+            {{country}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline">
+        <mat-label>Chất liệu</mat-label>
+        <input matInput placeholder="Vd: Vải kaki, vải đũi..." formControlName="material">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Màu</mat-label>
+        <mat-select formControlName="type">
+          <mat-option *ngFor="let type of types" [value]="type.value">
+            {{type.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Kích thước</mat-label>
+        <mat-select formControlName="size">
+          <mat-option *ngFor="let size of sizes" [value]="size.value">
+            {{size.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
     </div>
   </div>
 
+  <ckeditor [data]="htmlData" (change)="onChange($event)"></ckeditor>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Ghi chú</mat-label>
+    <input matInput placeholder="Vd: Ghi chú cho sản phẩm" formControlName="description">
+  </mat-form-field>
+
   <mat-dialog-actions align="end">
-    <button mat-flat-button tabindex="-1" [mat-dialog-close]="true" color="primary" type="submit">
+    <button mat-flat-button tabindex="-1" color="primary" type="submit">
       <mat-icon fxHide.xs>check</mat-icon>
       Đồng ý
     </button>
-    <button mat-button mat-dialog-close tabindex="-1" [mat-dialog-close]="false">
+    <button mat-button mat-dialog-close tabindex="-1">
       <mat-icon fxHide.xs>close</mat-icon>
       Hủy bỏ
     </button>
