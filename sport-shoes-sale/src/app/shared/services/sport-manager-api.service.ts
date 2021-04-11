@@ -95,4 +95,22 @@ export class SportManagerApiService {
   }
 
 
+  // order
+
+  public getOrders() {
+    return this.httpClient.get<any>(`${environment.localDomain}/api/getOrders`);
+  }
+
+  public postOrder(order: any) {
+    return this.httpClient.post(`${environment.localDomain}/api/getOrders`, order);
+  }
+
+  public putOrder(order: any) {
+    return this.httpClient.put(`${environment.localDomain}/api/getOrders/${order.id}`, order);
+  }
+
+  public deleteOrder(id: string) {
+    return this.httpClient.delete(`${environment.localDomain}/api/getOrders/${id}`);
+  }
+
 }

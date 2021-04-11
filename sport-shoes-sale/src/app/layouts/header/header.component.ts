@@ -15,7 +15,11 @@ import { LoginService } from 'src/app/shared/services/login.service';
 export class HeaderComponent extends BaseComponentService implements OnInit, OnDestroy {
 
   // xử lí thanh toán ở đây
+  public isLogin = false;
+  public selectedUser;
   public observerMessageSubcription: Subscription;
+  public favoriteProducts = [];
+  public cart = [];
   constructor(
     private loginService: LoginService,
     public toastr: ToastrService,
@@ -26,8 +30,14 @@ export class HeaderComponent extends BaseComponentService implements OnInit, OnD
   ) {
     super(toastr, router, currencyPipe, datePipe);
     if (localStorage.getItem('token') != null) {
-      this.GoTo('');
+      this.isLogin = true;
+      this.favoriteProducts = (this.ConvertStringToObject(localStorage.getItem('currentFavorite')) ? this.ConvertStringToObject(localStorage.getItem('currentFavorite')) : []);
+      this.cart = this.ConvertStringToObject(localStorage.getItem('currentCart')) ? this.ConvertStringToObject(localStorage.getItem('currentCart')) : [];
+    } else {
+      this.isLogin = false;
+      this.GoTo('login');
     }
+
   }
 
   ngOnDestroy(): void {
@@ -35,15 +45,57 @@ export class HeaderComponent extends BaseComponentService implements OnInit, OnD
   }
 
   ngOnInit() {
+    this.onMessageListener();
+    if (this.isLogin) {
+      const user = localStorage.getItem('tokenPayload');
+      this.selectedUser = this.ConvertStringToObject(user);
+    }
+
+  }
+
+  public goHome() {
+    this.GoTo('full');
   }
 
   public goToLogin() {
+    this.isLogin = false;
     this.GoTo('login');
+  }
+
+  public logout() {
+    localStorage.clear();
+    this.goToLogin();
   }
 
   public onMessageListener() {
     this.observerMessageSubcription = this.commonService.messageSource.asObservable().subscribe((data: any) => {
-      // do something
+      if (data?.label == 'favorite') {
+        const isExist = this.favoriteProducts.find(x => x.id == data.data.id);
+
+        if (!isExist)
+          this.favoriteProducts.push(data.data);
+        console.log(this.favoriteProducts);
+        localStorage.setItem('currentFavorite', this.ConvertObjectToString(this.favoriteProducts));
+      }
+
+      if (data?.label == 'cart') {
+        let currentProduct = this.cart.find(x => x.id == data.data.id);
+
+        if (!currentProduct) {
+          let newProduct = data.data;
+          newProduct.quantity = 1;
+          this.cart.push(newProduct);
+
+        } else {
+          currentProduct.quantity++;
+        }
+        console.log(this.cart);
+        localStorage.setItem('currentCart', this.ConvertObjectToString(this.cart));
+      }
+
+      this.isLogin = true;
+      const user = localStorage.getItem('tokenPayload');
+      this.selectedUser = this.ConvertStringToObject(user);
     });
   }
 

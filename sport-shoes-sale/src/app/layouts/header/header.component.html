@@ -9,10 +9,8 @@
       <div class="col-xl-6 col-lg-7">
         <nav class="header__menu">
           <ul>
-            <li class="active" routerLink="/full"><a>Trang chủ</a></li>
-            <li><a>Thời trang nam</a></li>
-            <li><a>Thời trang nữ</a></li>
-            <!-- <li><a href="#">Cửa hàng</a></li> -->
+            <li class="active"><a href="/full">Trang chủ</a></li>
+            <li><a routerLink="/grid-product">Cửa hàng</a></li>
             <li><a>Giỏ hàng</a>
               <ul class="dropdown">
                 <li><a>Chi tiết sản phẩm</a></li>
@@ -29,8 +27,15 @@
       <div class="col-lg-3">
         <div class="header__right">
           <div class="header__right__auth">
-            <a (click)="goToLogin()">Đăng nhập</a>
-            <a routerLink="/register">Đăng ký</a>
+            <div *ngIf="isLogin">
+              <a> {{ selectedUser?.Name}}</a>
+              <a (click)="logout()">Đăng xuất</a>
+            </div>
+            <div *ngIf="!isLogin">
+              <a (click)="goToLogin()">Đăng nhập</a>
+              <a routerLink="/register">Đăng ký</a>
+            </div>
+
           </div>
           <ul class="header__right__widget">
             <li>
@@ -38,12 +43,12 @@
             </li>
             <li>
               <a href="#"><span class="icon_heart_alt"></span>
-                <div class="tip">2</div>
+                <div class="tip">{{ favoriteProducts.length}}</div>
               </a>
             </li>
             <li>
               <a><span class="icon_bag_alt" data-target="#quoteForm" data-toggle="modal"></span>
-                <div class="tip">2</div>
+                <div class="tip">{{cart.length}}</div>
               </a>
             </li>
           </ul>

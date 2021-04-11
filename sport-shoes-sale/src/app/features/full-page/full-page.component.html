@@ -69,138 +69,22 @@
       </div>
     </div>
     <div class="row property__gallery">
-      <!-- <div class="col-lg-3 col-md-4 col-sm-6 mix" *ngFor="let product of products">
+      <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let product of products">
         <div class="product__item">
-          <div class="product__item__pic set-bg" data-setbg="assets/img/shoes-1.jpg">
+          <div class="product__item__pic"
+            [style.background-image]="'url(' + localDomain +'/' +  product.imageFile + ')'"
+            style="background-size: cover;">
             <div class="label new">Mới</div>
             <ul class="product__hover">
-              <li><a href="assets/img/shoes-1.jpg" class="image-popup"><span class="arrow_expand"></span></a>
-              </li>
-              <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-              <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-            </ul>
-          </div>
-          <div class="product__item__text">s
-            <h6><a href="#">Buttons tweed blazer</a></h6>
-            <div class="rating">
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-            </div>
-            <div class="product__price">$ 59.0</div>
-          </div>
-        </div>
-      </div> -->
-      <div class="col-lg-3 col-md-4 col-sm-6 mix">
-        <div class="product__item">
-          <div class="product__item__pic set-bg" data-setbg="assets/img/ball-1.jpg">
-            <ul class="product__hover">
-              <li><a href="assets/img/ball-1.jpg" class="image-popup"><span class="arrow_expand"></span></a>
-              </li>
-              <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-              <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-            </ul>
-          </div>
-          <div class="product__item__text">
-            <h6><a href="#">Flowy striped skirt</a></h6>
-            <div class="rating">
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-            </div>
-            <div class="product__price">$ 49.0</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 mix">
-        <div class="product__item">
-          <div class="product__item__pic set-bg" data-setbg="assets/img/shoe-2.jpg">
-            <div class="label stockout">out of stock</div>
-            <ul class="product__hover">
-              <li><a href="assets/img/shoe-2.jpg" class="image-popup"><span class="arrow_expand"></span></a>
-              </li>
-              <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-              <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-            </ul>
-          </div>
-          <div class="product__item__text">
-            <h6><a href="#">Cotton T-Shirt</a></h6>
-            <div class="rating">
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-            </div>
-            <div class="product__price">$ 59.0</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 mix">
-        <div class="product__item">
-          <div class="product__item__pic set-bg" data-setbg="assets/img/shoes-3.jpg">
-            <ul class="product__hover">
-              <li><a href="assets/img/shoes-3.jpg" class="image-popup"><span class="arrow_expand"></span></a>
-              </li>
-              <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-              <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-            </ul>
-          </div>
-          <div class="product__item__text">
-            <h6><a href="#">Slim striped pocket shirt</a></h6>
-            <div class="rating">
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-            </div>
-            <div class="product__price">$ 59.0</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 mix">
-        <div class="product__item">
-          <div class="product__item__pic set-bg"
-            data-setbg="assets/img/TD1MTHU_SHOE_ANGLE_GLOBAL_MENS_TREE_DASHERS_THUNDER_900x900.png">
-            <ul class="product__hover">
-              <li><a href="assets/img/roanldo-ban.jpg" class="image-popup"><span class="arrow_expand"></span></a>
-              </li>
-              <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-              <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-            </ul>
-          </div>
-          <div class="product__item__text">
-            <h6><a href="#">Fit micro corduroy shirt</a></h6>
-            <div class="rating">
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-            </div>
-            <div class="product__price">$ 59.0</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 mix women men kid accessories cosmetic">
-        <div class="product__item sale">
-          <div class="product__item__pic set-bg" data-setbg="assets/img/c398bcbde079cb54a173c85d6c58f8b5.jpg">
-            <div class="label sale">Sale</div>
-            <ul class="product__hover">
-              <li><a href="assets/img/c398bcbde079cb54a173c85d6c58f8b5.jpg" class="image-popup"><span
+              <li><a href="{{localDomain +'/' +  product.imageFile}}" class="image-popup"><span
                     class="arrow_expand"></span></a>
               </li>
-              <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-              <li><a href="#"><span class="icon_bag_alt"></span></a></li>
+              <li><a (click)="addFavorite(product)"><span class="icon_heart_alt"></span></a></li>
+              <li><a (click)="addProductToCart(product)"><span class="icon_bag_alt"></span></a></li>
             </ul>
           </div>
           <div class="product__item__text">
-            <h6><a href="#">Tropical Kimono</a></h6>
+            <h6><a (click)="showProductDetail(product)">{{ product.name}}</a></h6>
             <div class="rating">
               <i class="fa fa-star"></i>
               <i class="fa fa-star"></i>
@@ -208,57 +92,7 @@
               <i class="fa fa-star"></i>
               <i class="fa fa-star"></i>
             </div>
-            <div class="product__price">$ 49.0 <span>$ 59.0</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 mix women men kid accessories cosmetic">
-        <div class="product__item">
-          <div class="product__item__pic set-bg"
-            data-setbg="assets/img/da05a195f75c_05cab2f35f884f4ab1623779a9d0d978_master.jpg">
-            <ul class="product__hover">
-              <li><a href="assets/img/da05a195f75c_05cab2f35f884f4ab1623779a9d0d978_master.jpg"
-                  class="image-popup"><span class="arrow_expand"></span></a>
-              </li>
-              <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-              <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-            </ul>
-          </div>
-          <div class="product__item__text">
-            <h6><a href="#">Contrasting sunglasses</a></h6>
-            <div class="rating">
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-            </div>
-            <div class="product__price">$ 59.0</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 mix women men kid accessories cosmetic">
-        <div class="product__item sale">
-          <div class="product__item__pic set-bg" data-setbg="assets/img/fa83764462e4fe2fd049313759a7c328.jpg">
-            <div class="label">Sale</div>
-            <ul class="product__hover">
-              <li><a href="assets/img/fa83764462e4fe2fd049313759a7c328.jpg" class="image-popup"><span
-                    class="arrow_expand"></span></a>
-              </li>
-              <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-              <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-            </ul>
-          </div>
-          <div class="product__item__text">
-            <h6><a href="#">Water resistant backpack</a></h6>
-            <div class="rating">
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-            </div>
-            <div class="product__price">$ 49.0 <span>$ 59.0</span></div>
+            <div class="product__price">{{ product.price | number}} đ</div>
           </div>
         </div>
       </div>
@@ -274,23 +108,23 @@
         <div class="banner__slider owl-carousel">
           <div class="banner__item">
             <div class="banner__text">
-              <span>The Chloe Collection</span>
-              <h1>The Project Jacket</h1>
-              <a href="#">Shop now</a>
+              <span>NIKE</span>
+              <h1>Nike Sneaker Solar Red / EU243</h1>
+              <a href="#">Mua ngay</a>
             </div>
           </div>
           <div class="banner__item">
             <div class="banner__text">
-              <span>The Chloe Collection</span>
-              <h1>The Project Jacket</h1>
-              <a href="#">Shop now</a>
+              <span>ADIDAS</span>
+              <h1>Don't Look Back In Anger</h1>
+              <a href="#">Mua ngay</a>
             </div>
           </div>
           <div class="banner__item">
             <div class="banner__text">
-              <span>The Chloe Collection</span>
-              <h1>The Project Jacket</h1>
-              <a href="#">Shop now</a>
+              <span>PUMA</span>
+              <h1>Boycolt Give Puma The Boot</h1>
+              <a href="#">Mua ngay</a>
             </div>
           </div>
         </div>
@@ -361,7 +195,7 @@
       <div class="col-lg-4 col-md-4 col-sm-6">
         <div class="trend__content">
           <div class="section-title">
-            <h4>Best seller</h4>
+            <h4>Mua nhiều</h4>
           </div>
           <div class="trend__item">
             <div class="trend__item__pic">
@@ -416,7 +250,7 @@
       <div class="col-lg-4 col-md-4 col-sm-6">
         <div class="trend__content">
           <div class="section-title">
-            <h4>Feature</h4>
+            <h4>Sắp ra mắt</h4>
           </div>
           <div class="trend__item">
             <div class="trend__item__pic">
@@ -477,36 +311,36 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-6 p-0">
-        <div class="discount__pic">
-          <img src="assets/img/discount.jpg" alt="">
+        <div class="discount__pic" style="height: 100%;">
+          <img src="assets/img/7306a4336dbdfa5c0f12126d03af835d.jpg">
         </div>
       </div>
       <div class="col-lg-6 p-0">
         <div class="discount__text">
           <div class="discount__text__title">
-            <span>Discount</span>
+            <span>Khuyến mãi</span>
             <h2>Winter 2021</h2>
-            <h5><span>Sale</span> 50%</h5>
+            <h5><span>Giảm</span> 50%</h5>
           </div>
           <div class="discount__countdown" id="countdown-time">
             <div class="countdown__item">
               <span>22</span>
-              <p>Days</p>
+              <p>Ngày</p>
             </div>
             <div class="countdown__item">
               <span>18</span>
-              <p>Hour</p>
+              <p>Giờ</p>
             </div>
             <div class="countdown__item">
               <span>46</span>
-              <p>Min</p>
+              <p>Phút</p>
             </div>
             <div class="countdown__item">
               <span>05</span>
-              <p>Sec</p>
+              <p>Giây</p>
             </div>
           </div>
-          <a href="#">Shop now</a>
+          <a href="#">Mua ngay</a>
         </div>
       </div>
     </div>

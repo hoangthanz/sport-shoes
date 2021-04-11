@@ -11,7 +11,7 @@ import { HeaderComponent } from './layouts/header/header.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { BodyComponent } from './layouts/body/body.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DatePipe, CurrencyPipe, DecimalPipe } from '@angular/common';
+import { DatePipe, CurrencyPipe, DecimalPipe, CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BaseComponentService } from './shared/components/base-component/base-component.service';
 import { AuthGuardService } from './shared/services/auth-guard.service';
@@ -26,6 +26,7 @@ import { SingleProductComponent } from './features/single-product/single-product
 import { RouterModule } from '@angular/router';
 import { GridProductComponent } from './features/grid-product/grid-product.component';
 import { RegisterComponent } from './features/register/register.component';
+import { FullPageComponent } from './features/full-page/full-page.component';
 
 
 export function tokenGetter() {
@@ -35,6 +36,7 @@ export function tokenGetter() {
 
 @NgModule({
   declarations: [
+
     AppComponent,
     HeaderComponent,
     FooterComponent,
@@ -45,10 +47,12 @@ export function tokenGetter() {
     CheckoutComponent,
     SingleProductComponent,
     GridProductComponent,
-    RegisterComponent
+    RegisterComponent,
+    FullPageComponent
 
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
