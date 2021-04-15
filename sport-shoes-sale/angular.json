@@ -30,18 +30,7 @@
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "assets/css/font-awesome.min.css",
-              "assets/css/elegant-icons.css",
-              "assets/css/jquery-ui.min.css",
-              "assets/css/magnific-popup.css",
-              "assets/css/owl.carousel.min.css",
-              "assets/css/slicknav.min.css",
-              "assets/css/style.css",
-              "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
-              "https://fonts.gstatic.com",
-              "assets/css/ui.css",
-              "assets/css/responsive.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
