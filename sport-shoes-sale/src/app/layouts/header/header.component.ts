@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { BaseComponentService } from 'src/app/shared/components/base-component/base-component.service';
 import { CommonService } from 'src/app/shared/services/common.service';
 import { LoginService } from 'src/app/shared/services/login.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-header',
@@ -20,6 +21,9 @@ export class HeaderComponent extends BaseComponentService implements OnInit, OnD
   public observerMessageSubcription: Subscription;
   public favoriteProducts = [];
   public cart = [];
+  public localDomain = environment.localDomain;
+
+  public total = 0;
   constructor(
     private loginService: LoginService,
     public toastr: ToastrService,
@@ -33,6 +37,10 @@ export class HeaderComponent extends BaseComponentService implements OnInit, OnD
       this.isLogin = true;
       this.favoriteProducts = (this.ConvertStringToObject(localStorage.getItem('currentFavorite')) ? this.ConvertStringToObject(localStorage.getItem('currentFavorite')) : []);
       this.cart = this.ConvertStringToObject(localStorage.getItem('currentCart')) ? this.ConvertStringToObject(localStorage.getItem('currentCart')) : [];
+
+      this.cart.forEach(item => {
+        this.total += (item.quantity * item.price);
+      });
     } else {
       this.isLogin = false;
       this.GoTo('login');

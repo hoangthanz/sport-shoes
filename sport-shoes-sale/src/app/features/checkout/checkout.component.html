@@ -54,7 +54,7 @@
         <article class="card mb-4">
           <div class="card-body">
             <h4 class="card-title mb-4">Thông tin vận chuyển</h4>
-            <form action="">
+            <div action="">
               <div class="row">
                 <div class="form-group col-sm-6">
                   <label class="js-check box">
@@ -103,7 +103,7 @@
                   <input type="text" placeholder="" class="form-control" [(ngModel)]="selectedOrder.zip">
                 </div>
               </div> <!-- row.// -->
-            </form>
+            </div>
           </div> <!-- card-body.// -->
         </article> <!-- card.// -->
 
@@ -142,13 +142,13 @@
             <div id="pay_payme" class="collapse" data-parent="#accordion_pay">
               <div class="card-body">
                 <p class="alert alert-success">Hướng dẫn thanh toán</p>
-                <form class="form-inline">
+                <div class="form-inline">
                   <input type="text" class="form-control mr-2" placeholder="xxxx-xxxx-xxxx-xxxx" name="">
                   <input type="text" class="form-control mr-2" style="width: 100px" placeholder="dd/yy" name="">
                   <input type="number" maxlength="3" class="form-control mr-2" style="width: 100px" placeholder="cvc"
                     name="">
                   <button class="btn btn btn-success" (click)="submitPayment()">Xác nhận</button>
-                </form>
+                </div>
               </div> <!-- card body .// -->
             </div> <!-- collapse .// -->
           </div> <!-- card.// -->
@@ -193,11 +193,11 @@
             <hr>
             <dl class="dlist-align">
               <dt>Tổng:</dt>
-              <dd class="h5">$300.50</dd>
+              <dd class="h5">{{ total | number}} đ</dd>
             </dl>
             <hr>
             <p class="small mb-3 text-muted">Đồng ý với điều khoản dưới đây </p>
-            <a href="#" class="btn btn-primary btn-block"> Xác nhận </a>
+            <a (click)="submitPayment()" class="btn btn-primary btn-block" style="color: white;"> Xác nhận </a>
 
           </div> <!-- card-body.// -->
         </div> <!-- card.// -->

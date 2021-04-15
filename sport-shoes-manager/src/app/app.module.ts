@@ -46,6 +46,9 @@ export function tokenGetter() {
     RegisterComponent,
     ConfirmComponent
   ],
+  entryComponents:[
+    ConfirmComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

@@ -36,33 +36,6 @@ namespace SportShoes.Controllers
         {
             try
             {
-                if (_context.Functions.ToList().Count == 0)
-                {
-                    List<Function> functions = new List<Function>()
-                    {
-                        new Function(){ Id = TextHelper.RandomString(10, false), Name = "Quyền Admin", Code = "ExportXLS", Status = Status.Active},
-                        new Function(){ Id = TextHelper.RandomString(10, false), Name = "Điều chỉnh tài khoản", Code = "Admin", Status = Status.Active},
-                        new Function(){ Id = TextHelper.RandomString(10, false), Name = "", Code = "Player", Status = Status.Active},
-
-                        new Function(){ Id = TextHelper.RandomString(10, false), Name = "", Code = "ProfitPercent.Read", Status = Status.Active},
-                        new Function(){ Id = TextHelper.RandomString(10, false), Name = "", Code = "ProfitPercent.Write", Status = Status.Active},
-                        new Function(){ Id = TextHelper.RandomString(10, false), Name = "", Code = "ProfitPercent.Delete", Status = Status.Active},
-
-                        new Function(){ Id = TextHelper.RandomString(10, false), Name = "", Code = "Account.Read", Status = Status.Active},
-                        new Function(){ Id = TextHelper.RandomString(10, false), Name = "", Code = "Account.Write", Status = Status.Active},
-                        new Function(){ Id = TextHelper.RandomString(10, false), Name = "", Code = "Account.Delete", Status = Status.Active},
-
-                        new Function(){ Id = TextHelper.RandomString(10, false), Name = "", Code = "Transaction.Read", Status = Status.Active},
-                        new Function(){ Id = TextHelper.RandomString(10, false), Name = "", Code = "Transaction.Write", Status = Status.Active},
-                        new Function(){ Id = TextHelper.RandomString(10, false), Name = "", Code = "Transaction.Delete", Status = Status.Active},
-
-                    };
-
-                    await _context.Functions.AddRangeAsync(functions);
-                    await _context.SaveChangesAsync();
-
-                }
-
 
                 if (_context.AppUsers.ToList().Count == 0)
                 {
@@ -154,10 +127,126 @@ namespace SportShoes.Controllers
 
                     await _context.Permissions.AddRangeAsync(permissions);
                 }
+
+                if (_context.Functions.ToList().Count == 0)
+                {
+                    List<Function> functions = new List<Function>()
+                    {
+                        new Function(){ Id = Guid.NewGuid().ToString(), Name = "Quyền Admin", Code = "ExportXLS", Status = Status.Active},
+                        new Function(){ Id = Guid.NewGuid().ToString(), Name = "Điều chỉnh tài khoản", Code = "Admin", Status = Status.Active},
+                        new Function(){ Id = Guid.NewGuid().ToString(), Name = "", Code = "Player", Status = Status.Active},
+
+                        new Function(){ Id = Guid.NewGuid().ToString(), Name = "", Code = "ProfitPercent.Read", Status = Status.Active},
+                        new Function(){ Id = Guid.NewGuid().ToString(), Name = "", Code = "ProfitPercent.Write", Status = Status.Active},
+                        new Function(){ Id = Guid.NewGuid().ToString(), Name = "", Code = "ProfitPercent.Delete", Status = Status.Active},
+
+                        new Function(){ Id = Guid.NewGuid().ToString(), Name = "", Code = "Account.Read", Status = Status.Active},
+                        new Function(){ Id = Guid.NewGuid().ToString(), Name = "", Code = "Account.Write", Status = Status.Active},
+                        new Function(){ Id = Guid.NewGuid().ToString(), Name = "", Code = "Account.Delete", Status = Status.Active},
+
+                        new Function(){ Id = Guid.NewGuid().ToString(), Name = "", Code = "Transaction.Read", Status = Status.Active},
+                        new Function(){ Id = Guid.NewGuid().ToString(), Name = "", Code = "Transaction.Write", Status = Status.Active},
+                        new Function(){ Id = Guid.NewGuid().ToString(), Name = "", Code = "Transaction.Delete", Status = Status.Active},
+
+                    };
+
+                    await _context.Functions.AddRangeAsync(functions);
+                    await _context.SaveChangesAsync();
+
+                }
+
+                if (_context.Brands.ToList().Count == 0)
+                {
+                    List<Brand> functions = new List<Brand>()
+                    {
+                        new Brand(){ Id = Guid.NewGuid().ToString(), Name = "Adidas", Status = Status.Active},
+                        new Brand(){ Id = Guid.NewGuid().ToString(), Name = "Puma",  Status = Status.Active},
+                        new Brand(){ Id = Guid.NewGuid().ToString(), Name = "Nike",  Status = Status.Active},
+                    };
+
+                    await _context.Brands.AddRangeAsync(functions);
+                    await _context.SaveChangesAsync();
+
+                }
+
+                if(_context.ProductCategories.ToList().Count == 0)
+                {
+
+                    var productCategories = new List<ProductCategory>()
+                    {
+                        new ProductCategory(){ Id = Guid.NewGuid().ToString(), Name = "Giày Adidas", Status= Status.Active},
+                        new ProductCategory(){ Id = Guid.NewGuid().ToString(), Name = "Giày Puma", Status= Status.Active},
+                        new ProductCategory(){ Id = Guid.NewGuid().ToString(), Name = "Giày Nike", Status= Status.Active},
+                        new ProductCategory(){ Id = Guid.NewGuid().ToString(), Name = "Áo thun", Status= Status.Active},
+                        new ProductCategory(){ Id = Guid.NewGuid().ToString(), Name = "Băng đeo tay", Status= Status.Active},
+                        new ProductCategory(){ Id = Guid.NewGuid().ToString(), Name = "Băng trán", Status= Status.Active},
+                        new ProductCategory(){ Id = Guid.NewGuid().ToString(), Name = "Túi xách", Status= Status.Active}
+                    };
+
+                    await _context.ProductCategories.AddRangeAsync(productCategories);
+                    await _context.SaveChangesAsync();
+                }
+
+                if (_context.Products.ToList().Count == 0)
+                {
+
+                    var productCategory = _context.ProductCategories.FirstOrDefault();
+           
+                    
+                        var brand = _context.Brands.FirstOrDefault();
+                        if (brand == null)
+                            return BadRequest();
+
+                   
+
+                        if (productCategory == null)
+                            return BadRequest();
+                        var products = new List<Product>()
+                        {
+                            new Product(){Id = Guid.NewGuid().ToString(), BrandId = brand.Id,ImageFile="images/1.jpg", Name="Sản phẩm 1",ProductCategoryId =  productCategory.Id, Star = 5, Summary = "", Status = Status.Active, Price = 100000,UnitsInStock = 10},
+                            new Product(){Id = Guid.NewGuid().ToString(), BrandId = brand.Id,ImageFile="images/2.jpg", Name="Sản phẩm 2",ProductCategoryId =  productCategory.Id, Star = 5, Summary = "", Status = Status.Active, Price = 100000,UnitsInStock = 10},
+                            new Product(){Id = Guid.NewGuid().ToString(), BrandId = brand.Id,ImageFile="images/3.jpg", Name="Sản phẩm 3",ProductCategoryId =  productCategory.Id, Star = 5, Summary = "", Status = Status.Active, Price = 100000,UnitsInStock = 10},
+                            new Product(){Id = Guid.NewGuid().ToString(), BrandId = brand.Id,ImageFile="images/4.jpg", Name="Sản phẩm 4",ProductCategoryId =  productCategory.Id, Star = 5, Summary = "", Status = Status.Active, Price = 100000,UnitsInStock = 10},
+                            new Product(){Id = Guid.NewGuid().ToString(), BrandId = brand.Id,ImageFile="images/5.jpg", Name="Sản phẩm 5",ProductCategoryId =  productCategory.Id, Star = 5, Summary = "", Status = Status.Active, Price = 100000,UnitsInStock = 10},
+                            new Product(){Id = Guid.NewGuid().ToString(), BrandId = brand.Id,ImageFile="images/6.jpg", Name="Sản phẩm 6",ProductCategoryId =  productCategory.Id, Star = 5, Summary = "", Status = Status.Active, Price = 100000,UnitsInStock = 10},
+                            new Product(){Id = Guid.NewGuid().ToString(), BrandId = brand.Id,ImageFile="images/7.jpg", Name="Sản phẩm 7",ProductCategoryId =  productCategory.Id, Star = 5, Summary = "", Status = Status.Active, Price = 100000,UnitsInStock = 10},
+                            new Product(){Id = Guid.NewGuid().ToString(), BrandId = brand.Id,ImageFile="images/8.jpg", Name="Sản phẩm 8",ProductCategoryId =  productCategory.Id, Star = 5, Summary = "", Status = Status.Active, Price = 100000,UnitsInStock = 10},
+                            new Product(){Id = Guid.NewGuid().ToString(), BrandId = brand.Id,ImageFile="images/9.jpg", Name="Sản phẩm 9",ProductCategoryId =  productCategory.Id, Star = 5, Summary = "", Status = Status.Active, Price = 100000,UnitsInStock = 10},
+                            new Product(){Id = Guid.NewGuid().ToString(), BrandId = brand.Id,ImageFile="images/10.jpg", Name="Sản phẩm 10",ProductCategoryId =  productCategory.Id, Star = 5, Summary = "", Status = Status.Active, Price = 100000,UnitsInStock = 10},
+                            new Product(){Id = Guid.NewGuid().ToString(), BrandId = brand.Id,ImageFile="images/11.jpg", Name="Sản phẩm 11",ProductCategoryId =  productCategory.Id, Star = 5, Summary = "", Status = Status.Active, Price = 100000,UnitsInStock = 10},
+                        };
+                        await _context.Products.AddRangeAsync(products);
+                        await _context.SaveChangesAsync();
+
+                   
+                }
+
+                if (_context.Wishlists.ToList().Count == 0)
+                {
+                    var users = _context.Users;
+                    var wishlists = new List<Wishlist>();
+                    foreach (var user in users)
+                    {
+                        var wishlist = new Wishlist();
+                        wishlist.Id = Guid.NewGuid().ToString();
+                        wishlist.UserName = user.UserName;
+                        wishlist.UserId = user.Id;
+
+                        wishlists.Add(wishlist);
+                    }
+                    
+
+                    await _context.Wishlists.AddRangeAsync(wishlists);
+                    await _context.SaveChangesAsync();
+
+                }
+
+
+                
                 await _context.SaveChangesAsync();
                 return Ok("Đã tạo được dữ liệu mẫu thành công");
             }
-            catch
+            catch(Exception e)
             {
                 return BadRequest("Không tạo được dữ liệu mẫu");
             }

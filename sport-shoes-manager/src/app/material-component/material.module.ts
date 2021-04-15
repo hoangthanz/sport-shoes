@@ -60,7 +60,11 @@ import { MatTableModule } from '@angular/material/table';
   providers: [],
   entryComponents: [
     DialogOverviewExampleDialogComponent,
-    CreateProductComponent
+    CreateProductComponent,
+    CreateProductCategoryComponent,
+    UpdateProductCategoryComponent,
+    CreateProductComponent,
+    UpdateProductComponent,
   ],
   declarations: [
     ButtonsComponent,

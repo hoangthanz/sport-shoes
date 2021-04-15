@@ -17,6 +17,9 @@ export class FullPageComponent extends BaseComponentService implements OnInit {
 
   public products = [];
 
+  public hottrends = [];;
+  public sales = [];
+
   public localDomain = environment.localDomain;
   constructor(
     public _sportManagerApiService: SportManagerApiService,
@@ -42,6 +45,13 @@ export class FullPageComponent extends BaseComponentService implements OnInit {
   public getProducts(): void {
     this._sportManagerApiService.getProducts().subscribe((products: any[]) => {
       this.products = products;
+      this.hottrends.push(this.products[0]);
+      this.hottrends.push(this.products[1]);
+      this.hottrends.push(this.products[2]);
+
+      this.sales.push(this.products[4]);
+      this.sales.push(this.products[5]);
+      this.sales.push(this.products[6]);
     }, error => {
       this.products = [];
     });

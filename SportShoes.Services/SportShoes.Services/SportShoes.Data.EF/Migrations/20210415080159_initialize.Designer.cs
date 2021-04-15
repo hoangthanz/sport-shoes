@@ -10,7 +10,7 @@ using SportShoes.Data.EF;
 namespace SportShoes.Data.EF.Migrations
 {
     [DbContext(typeof(SportShoesDbContext))]
-    [Migration("20210328151904_initialize")]
+    [Migration("20210415080159_initialize")]
     partial class initialize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -349,10 +349,13 @@ namespace SportShoes.Data.EF.Migrations
                     b.Property<DateTime?>("DateModified")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("UserId")
+                    b.Property<Guid?>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
@@ -719,6 +722,9 @@ namespace SportShoes.Data.EF.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<string>("ProductCategoryId")
                         .HasColumnType("nvarchar(450)");
 
@@ -733,9 +739,6 @@ namespace SportShoes.Data.EF.Migrations
 
                     b.Property<string>("Summary")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("UnitPrice")
-                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int?>("UnitsInStock")
                         .HasColumnType("int");
@@ -769,7 +772,7 @@ namespace SportShoes.Data.EF.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("UserId")
+                    b.Property<Guid?>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");

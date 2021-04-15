@@ -98,19 +98,43 @@ export class SportManagerApiService {
   // order
 
   public getOrders() {
-    return this.httpClient.get<any>(`${environment.localDomain}/api/getOrders`);
+    return this.httpClient.get<any>(`${environment.localDomain}/api/Orders`);
   }
 
   public postOrder(order: any) {
-    return this.httpClient.post(`${environment.localDomain}/api/getOrders`, order);
+    return this.httpClient.post(`${environment.localDomain}/api/Orders`, order);
+  }
+
+  public postOrderBuy(order: any) {
+    return this.httpClient.post(`${environment.localDomain}/api/Orders/buy`, order);
   }
 
   public putOrder(order: any) {
-    return this.httpClient.put(`${environment.localDomain}/api/getOrders/${order.id}`, order);
+    return this.httpClient.put(`${environment.localDomain}/api/Orders/${order.id}`, order);
   }
 
   public deleteOrder(id: string) {
-    return this.httpClient.delete(`${environment.localDomain}/api/getOrders/${id}`);
+    return this.httpClient.delete(`${environment.localDomain}/api/Orders/${id}`);
   }
+
+
+  // order details
+
+  public getOrderDetails() {
+    return this.httpClient.get<any>(`${environment.localDomain}/api/Orders`);
+  }
+
+  public postOrderDetail(order: any) {
+    return this.httpClient.post(`${environment.localDomain}/api/Orders`, order);
+  }
+
+  public putOrderDetail(order: any) {
+    return this.httpClient.put(`${environment.localDomain}/api/Orders/${order.id}`, order);
+  }
+
+  public deleteOrderDetail(id: string) {
+    return this.httpClient.delete(`${environment.localDomain}/api/Orders/${id}`);
+  }
+
 
 }

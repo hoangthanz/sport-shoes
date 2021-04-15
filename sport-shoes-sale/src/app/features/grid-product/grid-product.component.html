@@ -8,7 +8,7 @@
         <div class="card">
           <article class="filter-group">
             <header class="card-header">
-              <a href="#" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" class="">
+              <a data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" class="">
                 <i class="icon-control fa fa-chevron-down"></i>
                 <h6 class="title">Loại sản phẩm</h6>
               </a>
@@ -35,7 +35,7 @@
           </article> <!-- filter-group  .// -->
           <article class="filter-group">
             <header class="card-header">
-              <a href="#" data-toggle="collapse" data-target="#collapse_2" aria-expanded="true" class="">
+              <a data-toggle="collapse" data-target="#collapse_2" aria-expanded="true" class="">
                 <i class="icon-control fa fa-chevron-down"></i>
                 <h6 class="title">Thương hiệu </h6>
               </a>
@@ -53,7 +53,7 @@
           </article> <!-- filter-group .// -->
           <article class="filter-group">
             <header class="card-header">
-              <a href="#" data-toggle="collapse" data-target="#collapse_3" aria-expanded="true" class="">
+              <a data-toggle="collapse" data-target="#collapse_3" aria-expanded="true" class="">
                 <i class="icon-control fa fa-chevron-down"></i>
                 <h6 class="title">Khoảng giá </h6>
               </a>
@@ -71,13 +71,13 @@
                     <input class="form-control" placeholder="$1,0000" type="number">
                   </div>
                 </div> <!-- form-row.// -->
-                <button class="btn btn-block btn-primary">Apply</button>
+                <button class="btn btn-block btn-primary"> Áp dụng</button>
               </div><!-- card-body.// -->
             </div>
           </article> <!-- filter-group .// -->
           <article class="filter-group">
             <header class="card-header">
-              <a href="#" data-toggle="collapse" data-target="#collapse_4" aria-expanded="true" class="">
+              <a data-toggle="collapse" data-target="#collapse_4" aria-expanded="true" class="">
                 <i class="icon-control fa fa-chevron-down"></i>
                 <h6 class="title">Kích thước </h6>
               </a>
@@ -108,7 +108,7 @@
           </article> <!-- filter-group .// -->
           <article class="filter-group">
             <header class="card-header">
-              <a href="#" data-toggle="collapse" data-target="#collapse_5" aria-expanded="false" class="">
+              <a data-toggle="collapse" data-target="#collapse_5" aria-expanded="false" class="">
                 <i class="icon-control fa fa-chevron-down"></i>
                 <h6 class="title">Lọc nhiều hơn</h6>
               </a>
@@ -160,17 +160,17 @@
 
 
         <div *ngIf="isList">
-          <article class="card card-product-list">
+          <article class="card card-product-list" *ngFor="let item of products">
             <div class="row no-gutters">
               <aside class="col-md-3">
-                <a href="#" class="img-wrap">
+                <a class="img-wrap">
                   <span class="badge badge-danger"> NEW </span>
-                  <img src="assets/img/items/3.jpg">
+                  <img [src]="localDomain + '/' + item?.imageFile">
                 </a>
               </aside> <!-- col.// -->
               <div class="col-md-6">
                 <div class="info-main">
-                  <a href="#" class="h5 title"> Great product name goes here </a>
+                  <a class="h5 title"> Great product name goes here </a>
                   <div class="rating-wrap mb-3">
                     <ul class="rating-stars">
                       <li style="width:80%" class="stars-active">
@@ -194,154 +194,15 @@
               <aside class="col-sm-3">
                 <div class="info-aside">
                   <div class="price-wrap">
-                    <span class="price h5"> $140 </span>
-                    <del class="price-old"> $198</del>
+                    <span class="price h5"> {{item.price | number }} đ</span>
+                    <del class="price-old"> {{item.price | number }} đ</del>
                   </div> <!-- info-price-detail // -->
-                  <p class="text-success">Free shipping</p>
+                  <p class="text-success">Miễn phí vận chuyển</p>
                   <br>
                   <p>
-                    <a href="#" class="btn btn-primary btn-block"> Details </a>
-                    <a href="#" class="btn btn-light btn-block"><i class="fa fa-heart"></i>
-                      <span class="text">Add to wishlist</span>
-                    </a>
-                  </p>
-                </div> <!-- info-aside.// -->
-              </aside> <!-- col.// -->
-            </div> <!-- row.// -->
-          </article> <!-- card-product .// -->
-
-
-          <article class="card card-product-list">
-            <div class="row no-gutters">
-              <aside class="col-md-3">
-                <a href="#" class="img-wrap"><img src="assets/img/items/4.jpg"></a>
-              </aside> <!-- col.// -->
-              <div class="col-md-6">
-                <div class="info-main">
-                  <a href="#" class="h5 title"> Great product name goes here </a>
-                  <div class="rating-wrap mb-3">
-                    <ul class="rating-stars">
-                      <li style="width:80%" class="stars-active">
-                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                      </li>
-                      <li>
-                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                      </li>
-                    </ul>
-                    <div class="label-rating">7/10</div>
-                  </div> <!-- rating-wrap.// -->
-
-                  <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, Lorem ipsum dolor sit amet, consectetuer
-                    adipiscing elit, Ut wisi enim ad minim veniam </p>
-                </div> <!-- info-main.// -->
-              </div> <!-- col.// -->
-              <aside class="col-sm-3">
-                <div class="info-aside">
-                  <div class="price-wrap">
-                    <span class="price h5"> $56 </span>
-                    <del class="price-old"> $85</del>
-                  </div> <!-- info-price-detail // -->
-                  <p class="text-success">Free shipping</p>
-                  <br>
-                  <p>
-                    <a href="#" class="btn btn-primary btn-block"> Details </a>
-                    <a href="#" class="btn btn-light btn-block"><i class="fa fa-heart"></i>
-                      <span class="text">Add to wishlist</span></a>
-                  </p>
-                </div> <!-- info-aside.// -->
-              </aside> <!-- col.// -->
-            </div> <!-- row.// -->
-          </article> <!-- card-product .// -->
-
-          <article class="card card-product-list">
-            <div class="row no-gutters">
-              <aside class="col-md-3">
-                <a href="#" class="img-wrap"><img src="assets/img/items/5.jpg"></a>
-              </aside> <!-- col.// -->
-              <div class="col-md-6">
-                <div class="info-main">
-                  <a href="#" class="h5 title"> Great product name goes here </a>
-                  <div class="rating-wrap mb-3">
-                    <ul class="rating-stars">
-                      <li style="width:80%" class="stars-active">
-                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                      </li>
-                      <li>
-                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                      </li>
-                    </ul>
-                    <div class="label-rating">7/10</div>
-                  </div> <!-- rating-wrap.// -->
-
-                  <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, Lorem ipsum dolor sit amet, consectetuer
-                    adipiscing elit, Ut wisi enim ad minim veniam </p>
-                </div> <!-- info-main.// -->
-              </div> <!-- col.// -->
-              <aside class="col-sm-3">
-                <div class="info-aside">
-                  <div class="price-wrap">
-                    <span class="price h5"> $56.00 </span>
-                  </div> <!-- info-price-detail // -->
-                  <p class="text-success">Free shipping</p>
-                  <br>
-                  <p>
-                    <a href="#" class="btn btn-primary btn-block"> Details </a>
-                    <a href="#" class="btn btn-light btn-block"><i class="fa fa-heart"></i>
-                      <span class="text">Add to wishlist</span>
-                    </a>
-                  </p>
-                </div> <!-- info-aside.// -->
-              </aside> <!-- col.// -->
-            </div> <!-- row.// -->
-          </article> <!-- card-product .// -->
-
-          <article class="card card-product-list">
-            <div class="row no-gutters">
-              <aside class="col-md-3">
-                <a href="#" class="img-wrap"><img src="assets/img/items/6.jpg"></a>
-              </aside> <!-- col.// -->
-              <div class="col-md-6">
-                <div class="info-main">
-                  <a href="#" class="h5 title"> Product name can be here </a>
-                  <div class="rating-wrap mb-3">
-                    <ul class="rating-stars">
-                      <li style="width:80%" class="stars-active">
-                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                      </li>
-                      <li>
-                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                      </li>
-                    </ul>
-                    <div class="label-rating">7/10</div>
-                  </div> <!-- rating-wrap.// -->
-
-                  <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, Lorem ipsum dolor sit amet, consectetuer
-                    adipiscing elit, Ut wisi enim ad minim veniam </p>
-                </div> <!-- info-main.// -->
-              </div> <!-- col.// -->
-              <aside class="col-sm-3">
-                <div class="info-aside">
-                  <div class="price-wrap">
-                    <span class="price h5"> $62 </span>
-                  </div> <!-- info-price-detail // -->
-                  <p class="text-success">Free shipping</p>
-                  <br>
-                  <p>
-                    <a href="#" class="btn btn-primary btn-block"> Details </a>
-                    <a href="#" class="btn btn-light btn-block"><i class="fa fa-heart"></i>
-                      <span class="text">Add to wishlist</span>
+                    <a (click)="showProductDetail(item)" class="btn btn-primary btn-block"> Chi tiết </a>
+                    <a (click)="addFavorite(item)" class="btn btn-light btn-block"><i class="fa fa-heart"></i>
+                      <span class="text">Yêu thích</span>
                     </a>
                   </p>
                 </div> <!-- info-aside.// -->
@@ -356,18 +217,20 @@
               <figure class="card card-product-grid">
                 <div class="img-wrap">
                   <span class="badge badge-danger"> NEW </span>
-                  <img src="assets/img/items/1.jpg">
-                  <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Quick view</a>
+                  <img [src]="localDomain + '/' + item?.imageFile">
+                  <a class="btn-overlay" (click)="showProductDetail(item)"><i class="fa fa-search-plus"></i> Xem
+                    nhanh</a>
                 </div> <!-- img-wrap.// -->
                 <figcaption class="info-wrap">
                   <div class="fix-height">
-                    <a href="#" class="title">Great item name goes here</a>
+                    <a class="title">{{item?.name }}</a>
                     <div class="price-wrap mt-2">
-                      <span class="price">$1280</span>
-                      <del class="price-old">$1980</del>
+                      <span class="price">{{item.price | number }} đ</span>
+                      <del class="price-old">{{item.price | number }} đ</del>
                     </div> <!-- price-wrap.// -->
                   </div>
-                  <a href="#" class="btn btn-block btn-primary">Thêm vào giỏ </a>
+                  <a (click)="addProductToCart(item)" class="btn btn-block btn-primary" style="color: white;">Thêm vào
+                    giỏ </a>
                 </figcaption>
               </figure>
             </div> <!-- col.// -->
@@ -380,11 +243,11 @@
 
         <nav aria-label="Page navigation sample">
           <ul class="pagination">
-            <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            <li class="page-item disabled"><a class="page-link">Trước</a></li>
+            <li class="page-item active"><a class="page-link">1</a></li>
+            <li class="page-item"><a class="page-link">2</a></li>
+            <li class="page-item"><a class="page-link">3</a></li>
+            <li class="page-item"><a class="page-link">Next</a></li>
           </ul>
         </nav>
 

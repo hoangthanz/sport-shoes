@@ -43,17 +43,9 @@ namespace SportShoes
                 options.AddPolicy(name: "MyPolicy",
                     builder =>
                     {
-                        builder.WithOrigins(
-                            "http://192.168.1.254:4200",
-                            "http://localhost:4200",
-                            "https://localhost:4200",
-                            "http://27.73.67.222:4200",
-                            "http://27.73.67.222:6999",
-                            "http://27.73.67.222:7000",
-                            "http://localhost:6999",
-                            "http://localhost:7000"
-                            )
-                        .AllowAnyMethod().AllowAnyHeader().AllowCredentials();
+                        builder.AllowAnyOrigin()
+
+                        .AllowAnyMethod().AllowAnyHeader();
                     });
             });
 

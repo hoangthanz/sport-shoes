@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using SportShoes.Application.ViewModels;
 using SportShoes.Data.EF;
 using SportShoes.Data.Entities;
 
@@ -80,6 +81,8 @@ namespace SportShoes.Controllers
         [HttpPost]
         public async Task<ActionResult<Order>> PostOrder(Order order)
         {
+            order.Id = Guid.NewGuid().ToString();
+
             _context.Orders.Add(order);
             try
             {
@@ -98,6 +101,52 @@ namespace SportShoes.Controllers
             }
 
             return CreatedAtAction("GetOrder", new { id = order.Id }, order);
+        }
+
+
+        [HttpPost("buy")]
+        public async Task<ActionResult> PostOrderPayment(OrderViewModel orderView)
+        {
+            var order = new Order();
+            order.Id = Guid.NewGuid().ToString();
+            order.Status = Data.Enums.Status.Active;
+            order.BuyerId = orderView.BuyerId;
+            order.UserId = orderView.UserId;
+
+            _context.Orders.Add(order);
+
+            var orderDetails = new List<OrderDetail>();
+
+            foreach (var item in orderView.OrderDetails)
+            {
+                var orderDetail = new OrderDetail();
+                orderDetail.Id = Guid.NewGuid().ToString();
+                orderDetail.OrderId = order.Id;
+                orderDetail.Price = item.Price;
+                orderDetail.Quantity = item.Quantity;
+                orderDetail.ProductId = item.Id;
+
+                orderDetails.Add(orderDetail);
+            }
+
+            _context.OrderDetails.AddRange(orderDetails);
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException)
+            {
+                if (OrderExists(order.Id))
+                {
+                    return Conflict();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return Ok();
         }
 
         // DELETE: api/Orders/5

@@ -80,6 +80,7 @@ namespace SportShoes.Controllers
         [HttpPost]
         public async Task<ActionResult<ProductCategory>> PostProductCategory(ProductCategory productCategory)
         {
+            productCategory.Id = Guid.NewGuid().ToString();
             _context.ProductCategories.Add(productCategory);
             try
             {

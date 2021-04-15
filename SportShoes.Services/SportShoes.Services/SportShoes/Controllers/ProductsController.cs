@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using SportShoes.Data.EF;
 using SportShoes.Data.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -78,6 +79,7 @@ namespace SportShoes.Controllers
         [HttpPost]
         public async Task<ActionResult<Product>> PostProduct(Product product)
         {
+            product.Id = Guid.NewGuid().ToString();
             _context.Products.Add(product);
             try
             {

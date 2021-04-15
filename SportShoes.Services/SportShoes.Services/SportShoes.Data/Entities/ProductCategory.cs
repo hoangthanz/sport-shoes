@@ -9,8 +9,8 @@ namespace SportShoes.Data.Entities
     public class ProductCategory:  DomainEntity<string>, ISwitchable,IDateTracking
     {
         public string Name { get; set; }
-        public Guid UserId { get; set; }
-        public AppUser AppUser { get; set; }
+        public Guid? UserId { get; set; }
+        public AppUser? AppUser { get; set; }
 
 
         public DateTime DateCreated { set; get; }

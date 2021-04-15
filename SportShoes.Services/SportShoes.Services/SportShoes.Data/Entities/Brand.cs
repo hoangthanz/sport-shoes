@@ -8,10 +8,10 @@ namespace SportShoes.Data.Entities
 {
     public class Brand : DomainEntity<string>, ISwitchable, IDateTracking
     {
-        public Guid UserId { get; set; }
-        public AppUser AppUser { get; set; }
+        public Guid? UserId { get; set; }
+        public AppUser? AppUser { get; set; }
 
-
+        public string Name { get; set; }
         public DateTime DateCreated { set; get; }
         public DateTime? DateModified { set; get; }
         public Status Status { set; get; }

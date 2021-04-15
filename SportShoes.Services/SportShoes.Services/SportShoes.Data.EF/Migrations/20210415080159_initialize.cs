@@ -377,8 +377,9 @@ namespace SportShoes.Data.EF.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
-                    UserId = table.Column<Guid>(nullable: false),
+                    UserId = table.Column<Guid>(nullable: true),
                     AppUserId = table.Column<Guid>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
                     DateCreated = table.Column<DateTime>(nullable: false),
                     DateModified = table.Column<DateTime>(nullable: true),
                     Status = table.Column<int>(nullable: false)
@@ -472,7 +473,7 @@ namespace SportShoes.Data.EF.Migrations
                 {
                     Id = table.Column<string>(nullable: false),
                     Name = table.Column<string>(nullable: true),
-                    UserId = table.Column<Guid>(nullable: false),
+                    UserId = table.Column<Guid>(nullable: true),
                     AppUserId = table.Column<Guid>(nullable: true),
                     DateCreated = table.Column<DateTime>(nullable: false),
                     DateModified = table.Column<DateTime>(nullable: true),
@@ -573,7 +574,7 @@ namespace SportShoes.Data.EF.Migrations
                     Summary = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     ImageFile = table.Column<string>(nullable: true),
-                    UnitPrice = table.Column<decimal>(nullable: false),
+                    Price = table.Column<decimal>(nullable: false),
                     UnitsInStock = table.Column<int>(nullable: true),
                     Star = table.Column<double>(nullable: false),
                     BrandId = table.Column<string>(nullable: true),

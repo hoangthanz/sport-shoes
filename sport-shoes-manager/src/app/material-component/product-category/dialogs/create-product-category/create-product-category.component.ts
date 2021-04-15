@@ -1,3 +1,4 @@
+import { MatDialogRef } from '@angular/material/dialog';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CurrencyPipe, DatePipe } from '@angular/common';
 import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
@@ -20,6 +21,7 @@ export class CreateProductCategoryComponent extends BaseComponentService impleme
     public currencyPipe: CurrencyPipe,
     public datePipe: DatePipe,
     private _sportManagerApiService: SportManagerApiService,
+    private matDialogRef: MatDialogRef<CreateProductCategoryComponent>
   ) {
     super(toastr, router, currencyPipe, datePipe);
   }
@@ -36,8 +38,9 @@ export class CreateProductCategoryComponent extends BaseComponentService impleme
 
 
   public submit() {
-    this._sportManagerApiService.putProductCategory(this.productCategoryform?.value).subscribe(response => {
+    this._sportManagerApiService.postProductCategory(this.productCategoryform?.value).subscribe(response => {
       this.ShowSuccessMessage('Thêm mới danh mục thành công!');
+      this.matDialogRef.close(true);
     }, error => {
       this.ShowErrorMessage('Thêm mới danh mục thất bại!');
     });

@@ -13,13 +13,13 @@ namespace SportShoes.Data.Entities
         public string Summary { get; set; }
         public string Description { get; set; }
         public string ImageFile { get; set; }
-        public decimal UnitPrice { get; set; }
+        public decimal Price { get; set; }
         public int? UnitsInStock { get; set; }
         public double Star { get; set; }
 
 
-        public string BrandId { get; set; }
-        public Brand Brand { get; set; }
+        public string? BrandId { get; set; }
+        public Brand? Brand { get; set; }
 
         public string ProductCategoryId { get; set; }
         public ProductCategory ProductCategory { get; set; }
