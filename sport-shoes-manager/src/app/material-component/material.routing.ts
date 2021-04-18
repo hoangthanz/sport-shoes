@@ -18,6 +18,7 @@ import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
 import { ProductCategoryComponent } from './product-category/product-category.component';
 import { ProductComponent } from './product/product.component';
 import { ReviewComponent } from './review/review.component';
+import { OrderHistoriesComponent } from './order-histories/order-histories.component';
 
 export const MaterialRoutes: Routes = [
   {
@@ -32,60 +33,65 @@ export const MaterialRoutes: Routes = [
     path: 'review',
     component: ReviewComponent
   },
+
   {
-    path: 'lists',
-    component: ListsComponent
+    path: 'order-history',
+    component: OrderHistoriesComponent
   },
-  {
-    path: 'menu',
-    component: MenuComponent
-  },
-  {
-    path: 'tabs',
-    component: TabsComponent
-  },
-  {
-    path: 'stepper',
-    component: StepperComponent
-  },
-  {
-    path: 'expansion',
-    component: ExpansionComponent
-  },
-  {
-    path: 'chips',
-    component: ChipsComponent
-  },
-  {
-    path: 'toolbar',
-    component: ToolbarComponent
-  },
-  {
-    path: 'progress-snipper',
-    component: ProgressSnipperComponent
-  },
-  {
-    path: 'progress',
-    component: ProgressComponent
-  },
-  {
-    path: 'dialog',
-    component: DialogComponent
-  },
-  {
-    path: 'tooltip',
-    component: TooltipComponent
-  },
-  {
-    path: 'snackbar',
-    component: SnackbarComponent
-  },
-  {
-    path: 'slider',
-    component: SliderComponent
-  },
-  {
-    path: 'slide-toggle',
-    component: SlideToggleComponent
-  }
+  // {
+  //   path: 'lists',
+  //   component: ListsComponent
+  // },
+  // {
+  //   path: 'menu',
+  //   component: MenuComponent
+  // },
+  // {
+  //   path: 'tabs',
+  //   component: TabsComponent
+  // },
+  // {
+  //   path: 'stepper',
+  //   component: StepperComponent
+  // },
+  // {
+  //   path: 'expansion',
+  //   component: ExpansionComponent
+  // },
+  // {
+  //   path: 'chips',
+  //   component: ChipsComponent
+  // },
+  // {
+  //   path: 'toolbar',
+  //   component: ToolbarComponent
+  // },
+  // {
+  //   path: 'progress-snipper',
+  //   component: ProgressSnipperComponent
+  // },
+  // {
+  //   path: 'progress',
+  //   component: ProgressComponent
+  // },
+  // {
+  //   path: 'dialog',
+  //   component: DialogComponent
+  // },
+  // {
+  //   path: 'tooltip',
+  //   component: TooltipComponent
+  // },
+  // {
+  //   path: 'snackbar',
+  //   component: SnackbarComponent
+  // },
+  // {
+  //   path: 'slider',
+  //   component: SliderComponent
+  // },
+  // {
+  //   path: 'slide-toggle',
+  //   component: SlideToggleComponent
+  // }
 ];

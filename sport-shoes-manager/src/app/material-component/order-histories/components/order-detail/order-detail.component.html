@@ -1,0 +1,48 @@
+<h3>Chi tiết đơn đặt</h3>
+<table mat-table [dataSource]="dataSource">
+  <!-- Item Column -->
+
+  <ng-container matColumnDef="index">
+    <th mat-header-cell *matHeaderCellDef> STT. </th>
+    <td mat-cell *matCellDef="let element; let i = index"> {{ i + 1 }} </td>
+    <td mat-footer-cell *matFooterCellDef> Tổng giá trị đơn</td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Tên sản phẩm </th>
+    <td mat-cell *matCellDef="let transaction"> {{transaction?.product?.name}} </td>
+    <td mat-footer-cell *matFooterCellDef> </td>
+  </ng-container>
+
+  <ng-container matColumnDef="imageFile">
+    <th mat-header-cell *matHeaderCellDef> Ảnh</th>
+    <td mat-cell *matCellDef="let element"> <img [src]="localDomain + '/'+ element?.product?.imageFile" width="30px"
+        height="30px"> </td>
+    <td mat-footer-cell *matFooterCellDef> </td>
+  </ng-container>
+
+  <!-- Cost Column -->
+  <ng-container matColumnDef="quantity">
+    <th mat-header-cell *matHeaderCellDef> Số lượng </th>
+    <td mat-cell *matCellDef="let transaction"> {{transaction?.quantity}} </td>
+    <td mat-footer-cell *matFooterCellDef> </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef> Giá </th>
+    <td mat-cell *matCellDef="let transaction"> {{transaction?.price | number}} đ</td>
+    <td mat-footer-cell *matFooterCellDef> </td>
+  </ng-container>
+
+  <ng-container matColumnDef="total">
+    <th mat-header-cell *matHeaderCellDef> Tổng </th>
+    <td mat-cell *matCellDef="let transaction"> {{transaction?.price * transaction?.quantity | number }} đ</td>
+    <td mat-footer-cell *matFooterCellDef> {{getTotalCost() | currency}} </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+</table>

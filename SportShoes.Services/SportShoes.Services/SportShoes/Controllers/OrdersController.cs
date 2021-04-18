@@ -29,6 +29,37 @@ namespace SportShoes.Controllers
             return await _context.Orders.ToListAsync();
         }
 
+        [HttpGet("order-histories")]
+        public async Task<ActionResult<IEnumerable<OrderViewModel>>> GetOrderHistories()
+        {
+            var orders = _context.Orders;
+            var ordersViews = new List<OrderViewModel>();
+
+            foreach (var order in orders)
+            {
+                var orderView = new OrderViewModel();
+                orderView.Id = order.Id;
+                orderView.Status = order.Status;
+                
+                orderView.BuyerId = order.BuyerId;
+                var user = _context.AppUsers.Where(x => x.Id == order.BuyerId).FirstOrDefault();
+                orderView.CustomerName = user.FirstName + " " + user.LastName;
+                orderView.OrderDate = order.OrderDate;
+
+                orderView.OrderDetails = _context.OrderDetails.Where(x => x.OrderId == order.Id).ToList();
+                foreach (var item in orderView.OrderDetails)
+                {
+                    item.Product = _context.Products.Where(x => x.Id == item.ProductId).FirstOrDefault();
+                }
+                orderView.Total = orderView.OrderDetails.Sum(x => x.Quantity * x.Price);
+
+                ordersViews.Add(orderView);
+            }
+
+            return ordersViews;
+        }
+
+
         // GET: api/Orders/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Order>> GetOrder(string id)
@@ -112,20 +143,23 @@ namespace SportShoes.Controllers
             order.Status = Data.Enums.Status.Active;
             order.BuyerId = orderView.BuyerId;
             order.UserId = orderView.UserId;
-
+            order.OrderDate = DateTime.Now;
             _context.Orders.Add(order);
 
             var orderDetails = new List<OrderDetail>();
 
-            foreach (var item in orderView.OrderDetails)
+            foreach (var item in orderView.OrderDetails) 
             {
                 var orderDetail = new OrderDetail();
                 orderDetail.Id = Guid.NewGuid().ToString();
                 orderDetail.OrderId = order.Id;
                 orderDetail.Price = item.Price;
                 orderDetail.Quantity = item.Quantity;
-                orderDetail.ProductId = item.Id;
+                orderDetail.ProductId = item.ProductId;
 
+                var product = _context.Products.Where(x => x.Id == item.ProductId).FirstOrDefault();
+                product.UnitsInStock -= item.Quantity;
+                _context.Products.Update(product);
                 orderDetails.Add(orderDetail);
             }
 

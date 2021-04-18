@@ -1,0 +1,52 @@
+<mat-card>
+  <mat-card-content>
+    <mat-card-title>Lịch sử đặt hàng</mat-card-title>
+    <mat-card-subtitle>Thông chi tiết lịch sử đặt hàng</mat-card-subtitle>
+
+
+    <table mat-table [dataSource]="dataSource">
+
+      <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="index">
+        <th mat-header-cell *matHeaderCellDef> STT. </th>
+        <td mat-cell *matCellDef="let element; let i = index"> {{ i + 1 }} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="orderDate">
+        <th mat-header-cell *matHeaderCellDef> Ngày đặt </th>
+        <td mat-cell *matCellDef="let element"> {{element.orderDate | date : 'dd/MM/yyyy hh:mm a'}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="customerName">
+        <th mat-header-cell *matHeaderCellDef> Khách hàng </th>
+        <td mat-cell *matCellDef="let element"> {{element.customerName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Trạng thái </th>
+        <td mat-cell *matCellDef="let element">
+          <mat-chip-list>
+
+            <mat-chip color="primary" *ngIf="element.status == 1" selected>Hoạt động</mat-chip>
+            <mat-chip color="accent" *ngIf="element.status == 0" selected>Đã hủy</mat-chip>
+          </mat-chip-list>
+        </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="total">
+        <th mat-header-cell *matHeaderCellDef> Tổng </th>
+        <td mat-cell *matCellDef="let element"> {{element.total | number }} đ </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row (dblclick)="showOrderDetails(row.orderDetails)" *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+  </mat-card-content>
+</mat-card>

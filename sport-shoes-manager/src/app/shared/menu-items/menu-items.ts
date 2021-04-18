@@ -14,7 +14,7 @@ const MENUITEMS = [
   { state: 'review', type: 'link', name: 'Bình luận', icon: 'view_list' },
 
 
-  { state: 'lists', type: 'link', name: 'Lists', icon: 'view_list' },
+  { state: 'order-history', type: 'link', name: 'Lịch sử đặt', icon: 'assistant' },
   // { state: 'menu', type: 'link', name: 'Menu', icon: 'view_headline' },
   // { state: 'tabs', type: 'link', name: 'Tabs', icon: 'tab' },
   // { state: 'stepper', type: 'link', name: 'Stepper', icon: 'web' },

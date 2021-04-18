@@ -183,8 +183,8 @@ export class UpdateProductComponent extends BaseComponentService implements OnIn
     const formData = new FormData();
     formData.append('file', fileToUpload);
 
-    this._sportManagerApiService.upload(formData).subscribe((response) => {
-      let url = response.toString().replace('wwwroot\\', '');
+    this._sportManagerApiService.upload(formData).subscribe((response: any) => {
+      let url = response.imagePath.toString().replace('wwwroot\\', '');
       url = url.replace('\\', '/');
       this.saveUrl = url;
       this.imageUrl = `${this.localDomain}/${url}`;

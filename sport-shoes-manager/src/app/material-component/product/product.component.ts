@@ -45,6 +45,11 @@ export class ProductComponent extends BaseComponentService implements OnInit {
   public getProducts(): void {
     this._sportManagerApiService.getProducts().subscribe((products: any[]) => {
       this.products = products;
+      this.products.forEach(element => {
+        let url = element.imageFile.toString().replace('wwwroot\\', '');
+        url = url.replace('\\', '/');
+        element.imageFile = url;
+      });
       this.setProductSource(this.products);
     }, error => {
 

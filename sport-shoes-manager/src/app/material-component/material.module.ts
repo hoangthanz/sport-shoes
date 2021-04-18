@@ -40,6 +40,8 @@ import { UpdateProductComponent } from './product/dialogs/update-product/update-
 import { ReviewComponent } from './review/review.component';
 import { CKEditorModule } from 'ckeditor4-angular';
 import { MatTableModule } from '@angular/material/table';
+import { OrderHistoriesComponent } from './order-histories/order-histories.component';
+import { OrderDetailComponent } from './order-histories/components/order-detail/order-detail.component';
 
 
 
@@ -65,6 +67,7 @@ import { MatTableModule } from '@angular/material/table';
     UpdateProductCategoryComponent,
     CreateProductComponent,
     UpdateProductComponent,
+    OrderDetailComponent
   ],
   declarations: [
     ButtonsComponent,
@@ -91,6 +94,8 @@ import { MatTableModule } from '@angular/material/table';
     CreateProductComponent,
     UpdateProductComponent,
     ReviewComponent,
+    OrderHistoriesComponent,
+    OrderDetailComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

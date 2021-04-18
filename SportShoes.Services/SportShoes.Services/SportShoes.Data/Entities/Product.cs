@@ -3,6 +3,7 @@ using SportShoes.Data.Interfaces;
 using SportShoes.Infrastructure.SharedKernel;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SportShoes.Data.Entities
 {
@@ -23,6 +24,8 @@ namespace SportShoes.Data.Entities
 
         public string ProductCategoryId { get; set; }
         public ProductCategory ProductCategory { get; set; }
+
+        [NotMapped]
         public List<OrderDetail> OrderDetails { get; set; }
         public List<Review> Reviews { get; set; } = new List<Review>();
         public DateTime DateCreated { set; get; }
